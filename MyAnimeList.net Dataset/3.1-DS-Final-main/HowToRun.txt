@@ -1,0 +1,3 @@
+1. Tải dữ liệu ở Kaggle (lưu ý là tải toàn bộ cả 3 file dữ liệu bằng nút Download (707 MB)): https://www.kaggle.com/marlesson/myanimelist-dataset-animes-profiles-reviews
+2. Để tập dữ liệu tải về không cần giải nén archive.zip cùng đường dẫn với file notebook P4DS_FinalProject.ipynb
+3. Kích hoạt môi trường min_ds-env trước khi chạy file P4DS_FinalProject.ipynb bằng Jupyter Notebook
