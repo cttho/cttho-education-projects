@@ -1,0 +1,36 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Automatic crawling
+
+on:
+  push:
+    branches: 
+      - main
+  schedule:
+      - cron: "0 0 * * *"
+
+jobs:
+  Crawl:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Crawl
+      run: |
+        python ./Worldometer-COVID19/dataset/scraping_worldometers.py
+    - name: Update
+      run: |
+        now=`date`
+        git config --global http.version HTTP/1.1
+        git config --global user.name "cttho"
+        git config --global user.email 'chungthetho@gmail.com'
+        git add ./Worldometer-COVID19/dataset
+        git commit -m "[ci skip] update ${now}" || echo 'Nothing to commit'
+        git push || echo 'Nothing to push'
