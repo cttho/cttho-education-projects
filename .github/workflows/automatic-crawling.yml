@@ -31,6 +31,6 @@ jobs:
         git config --global http.version HTTP/1.1
         git config --global user.name "cttho"
         git config --global user.email 'chungthetho@gmail.com'
-        git add ./Worldometer-COVID19/dataset/*.csv
+        git add .
         git commit -m "[ci skip] update ${now}" || echo 'Nothing to commit'
         git push || echo 'Nothing to push'
