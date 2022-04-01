@@ -84,6 +84,6 @@ df.to_csv(file_name, index=False)
 # In[8]:
 
 
-test = pd.read_csv(file_name)
+test = pd.read_csv(f"./Worldometer-COVID19/dataset/{file_name}")
 test.head(10)
 
