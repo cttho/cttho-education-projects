@@ -21,7 +21,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        if [ -f ./Worldometer-COVID19/requirements.txt ]; then pip install -r ./Worldometer-COVID19/requirements.txt; fi
     - name: Crawl
       run: |
         python ./Worldometer-COVID19/dataset/scraping_worldometers.py
